@@ -1,0 +1,29 @@
+// required for some plugins, such as the junit plugin
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.junit.platform:junit-platform-gradle-plugin:1.0.0-M2'
+    }
+}
+
+group 'de.hannessteffenhagen'
+version '0.1'
+
+apply plugin: 'java'
+apply plugin: 'application'
+apply plugin: 'org.junit.platform.gradle.plugin'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.slf4j:slf4j-api:1.7.21' //the logging api we'll use
+    compile 'ch.qos.logback:logback-classic:1.1.7' // the logger implementation
+    testCompile 'org.junit.jupiter:junit-jupiter-engine:5.0.0-M2' // JUnit 5
+}
